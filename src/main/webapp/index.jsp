@@ -10,7 +10,7 @@
 	Hello Óbudai!<br/>
 	Adja meg a nevet
 	<input type="text" id="name">
-	<a onclick="navigate()">Hello Servlet megnyitása</a>
+	<button onclick="navigate()">Hello Servlet megnyitása</button>
 	<script>
 		function navigate(){
 			var value = document.getElementById('name').value;
