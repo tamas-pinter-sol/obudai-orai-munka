@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Hello Óbudai!
+	Hello Óbudai!<br/>
+	Adja meg a nevet
+	<input type="text" id="name">
+	<a onclick="navigate()">Hello Servlet megnyitása</a>
+	<script>
+		function navigate(){
+			var value = document.getElementById('name').value;
+			window.location.href = "helloServlet?name=" + value;
+		}
+	</script>
 </body>
 </html>
