@@ -17,5 +17,7 @@
 			window.location.href = "helloServlet?name=" + value;
 		}
 	</script>
+	<br/>
+	<a href="helloNames">Nevek Listázása</a>
 </body>
 </html>

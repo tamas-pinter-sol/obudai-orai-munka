@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns="/helloNames")
+@WebServlet(urlPatterns = "/helloNames")
 public class HelloNames extends HttpServlet {
 
 	@Override
@@ -24,7 +24,7 @@ public class HelloNames extends HttpServlet {
 		req.setAttribute("names", names);
 		RequestDispatcher requestDispatcher = req.getServletContext()
 				.getRequestDispatcher("/hello_names.jsp");
-		requestDispatcher.include(req, resp);
+		requestDispatcher.forward(req, resp);
 	}
 
 }
