@@ -19,6 +19,21 @@ import org.apache.commons.beanutils.BeanUtils;
 public class BookEditServlet extends HttpServlet {
 
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		Book book = new Book();
+		book.setName("");
+		book.setDesc("");
+		book.setAuthor("");
+		book.setPubYear(0);
+		req.setAttribute("book", book);
+
+		RequestDispatcher requestDispatcher = req
+				.getRequestDispatcher("/book_edit.jsp");
+		requestDispatcher.forward(req, resp);
+	}
+
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		Book book = new Book();
