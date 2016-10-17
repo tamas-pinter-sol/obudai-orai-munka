@@ -1,10 +1,10 @@
 package hu.sol.kvki.book.servlet;
 
 import hu.sol.kvki.book.bean.Book;
+import hu.sol.kvki.book.service.BookService;
+import hu.sol.kvki.book.service.ServiceUtil;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,19 +15,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/book_edit")
 public class BookEditServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		Book book = new Book();
-		book.setName("");
-		book.setDesc("");
-		book.setAuthor("");
-		book.setPubYear(0);
+		BookService bookService = ServiceUtil.getBookService();
+		Book book;
+		if (req.getParameter("bookId") != null) {
+			Integer bookId = new Integer(req.getParameter("bookId"));
+			book = bookService.getBookById(bookId);
+		} else {
+			book = new Book();
+		}
 		req.setAttribute("book", book);
-
 		RequestDispatcher requestDispatcher = req
 				.getRequestDispatcher("/book_edit.jsp");
 		requestDispatcher.forward(req, resp);
@@ -39,10 +42,22 @@ public class BookEditServlet extends HttpServlet {
 		Book book = new Book();
 		try {
 			BeanUtils.populate(book, req.getParameterMap());
+			if (req.getParameter("id") == null
+					|| req.getParameter("id").isEmpty()) {
+				book.setId(null);
+			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		req.setAttribute("book", book);
+		BookService bookService = ServiceUtil.getBookService();
+		Book updatedBook;
+		System.out.println(book.getId());
+		if (book.getId() == null) {
+			updatedBook = bookService.addBook(book);
+		} else {
+			updatedBook = bookService.updateBook(book);
+		}
+		req.setAttribute("book", updatedBook);
 
 		RequestDispatcher requestDispatcher = req
 				.getRequestDispatcher("/book_details.jsp");

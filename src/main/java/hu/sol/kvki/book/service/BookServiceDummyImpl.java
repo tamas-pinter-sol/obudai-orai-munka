@@ -39,38 +39,44 @@ public class BookServiceDummyImpl implements BookService {
 		return null;
 	}
 
-	public synchronized void addBook(Book book) {
+	public synchronized Book addBook(Book book) {
+		book.setId(getNextId());
 		bookList.add(book);
+		return book;
 	}
 
-	public synchronized void updateBook(Book book) {
+	public synchronized Book updateBook(Book book) {
+
+		System.out.println(book.getId());
 		Book bookById = getBookById(book.getId());
 		deleteBook(bookById);
 		bookList.add(book);
+		return book;
 	}
 
 	public synchronized void deleteBook(Book book) {
 		Book toBeRemove = null;
 		for (Book b : bookList) {
-			if (book.getId().equals(book.getId())) {
+			if (book.getId().equals(b.getId())) {
 				toBeRemove = b;
 			}
 		}
-		if(toBeRemove != null){
+		System.out.println("toBeRemove" + toBeRemove);
+		if (toBeRemove != null) {
 			bookList.remove(toBeRemove);
 		}
 	}
 
-	public Integer getNextId() {
-		if(bookList.size() == 0){
+	public synchronized Integer getNextId() {
+		if (bookList.size() == 0) {
 			return 1;
 		}
 		int max = 0;
-		for(Book b: bookList){
-			if(b.getId() > max){
+		for (Book b : bookList) {
+			if (b.getId() > max) {
 				max = b.getId();
 			}
 		}
-		return max;
+		return max + 1;
 	}
 }

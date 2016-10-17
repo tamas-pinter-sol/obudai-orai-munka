@@ -21,8 +21,15 @@
 				<td><c:out value="${book.author}" /></td>
 				<td><c:out value="${book.desc}" /></td>
 				<td><c:out value="${book.pubYear}" /></td>
+				<td><a href="book_edit?bookId=${book.id}">Szerkesztés</a><br>
+					<a href="book_details?bookId=${book.id}">Megtekintés</a><br> 
+					<a href="book_delete?bookId=${book.id}">Törlés</a><br>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
+	<a href="book_edit">Könyv felvitele</a>
+	<br>
+	<c:if test="${empty books}">Nincs egyetlen könyv sem felvéve!</c:if>
 </body>
 </html>

@@ -5,34 +5,27 @@
 <title></title>
 </head>
 <body>
-	<jsp:useBean id="book" scope="request"
-		class="hu.sol.kvki.book.bean.Book" />
 	<form action="book_edit" method="post">
 		<table border="1">
 			<tr>
 				<td>Könyv azonosítója</td>
-				<td><input type="text" name="id"
-					value="<jsp:getProperty property="id" name="book" />" /></td>
+				<td>${book.id}<input type="hidden" name="id" value="${book.id}"/></td>
 			</tr>
 			<tr>
 				<td>A könyv címe</td>
-				<td><input type="text" name="name"
-					value="<jsp:getProperty property="name" name="book" />" /></td>
+				<td><input type="text" name="name" value="${book.name}" /></td>
 			</tr>
 			<tr>
 				<td>Leírás</td>
-				<td><input type="text" name="desc"
-					value="<jsp:getProperty property="desc" name="book" />" /></td>
+				<td><input type="text" name="desc" value="${book.desc}" /></td>
 			</tr>
 			<tr>
 				<td>Szerző</td>
-				<td><input type="text" name="author"
-					value="<jsp:getProperty property="author" name="book" /> " /></td>
+				<td><input type="text" name="author" value="${book.author}" /></td>
 			</tr>
 			<tr>
 				<td>Kiadás éve</td>
-				<td><input type="text" name="pubYear"
-					value="<jsp:getProperty property="pubYear" name="book" />" /></td>
+				<td><input type="text" name="pubYear" value="${book.pubYear}" /></td>
 			</tr>
 		</table>
 		<input type="submit">

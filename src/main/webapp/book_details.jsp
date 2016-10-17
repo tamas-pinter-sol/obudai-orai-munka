@@ -29,5 +29,6 @@
 			<td><jsp:getProperty property="pubYear" name="book" /></td>
 		</tr>
 	</table>
+	<a href="book_list">Vissza a könyvekhez</a>
 </body>
 </html>

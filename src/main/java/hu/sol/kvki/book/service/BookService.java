@@ -10,12 +10,10 @@ public interface BookService {
 
 	public Book getBookById(Integer id);
 
-	public void addBook(Book book);
+	public Book addBook(Book book);
 
-	public void updateBook(Book book);
+	public Book updateBook(Book book);
 
 	public void deleteBook(Book book);
-
-	public Integer getNextId();
 
 }
