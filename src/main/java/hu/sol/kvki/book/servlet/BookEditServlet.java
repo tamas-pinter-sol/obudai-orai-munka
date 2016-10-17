@@ -1,4 +1,4 @@
-package hu.sol.kvki.book.servket;
+package hu.sol.kvki.book.servlet;
 
 import hu.sol.kvki.book.bean.Book;
 
