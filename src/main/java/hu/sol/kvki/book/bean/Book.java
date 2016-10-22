@@ -3,7 +3,7 @@ package hu.sol.kvki.book.bean;
 public class Book {
 	private Integer id;
 	private String name;
-	private String desc;
+	private String description;
 	private String author;
 	private int pubYear;
 
@@ -23,12 +23,12 @@ public class Book {
 		this.name = name;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getAuthor() {
@@ -49,7 +49,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", desc=" + desc
+		return "Book [id=" + id + ", name=" + name + ", desc=" + description
 				+ ", author=" + author + ", pubYear=" + pubYear + "]";
 	}
 

@@ -19,7 +19,7 @@ public class BookServiceDummyImpl implements BookService {
 			Book temp = new Book();
 			temp.setId(i + 1);
 			temp.setName(i + 1 + ". cím");
-			temp.setDesc(i + 1 + ". című könyv leírása");
+			temp.setDescription(i + 1 + ". című könyv leírása");
 			temp.setAuthor(i + 1 + ". szerző");
 			temp.setPubYear(2000 + i);
 			bookList.add(temp);

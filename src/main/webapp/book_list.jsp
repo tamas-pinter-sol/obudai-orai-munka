@@ -19,7 +19,7 @@
 				<td><c:out value="${book.id}" /></td>
 				<td><c:out value="${book.name}" /></td>
 				<td><c:out value="${book.author}" /></td>
-				<td><c:out value="${book.desc}" /></td>
+				<td><c:out value="${book.description}" /></td>
 				<td><c:out value="${book.pubYear}" /></td>
 				<td><a href="book_edit?bookId=${book.id}">Szerkesztés</a><br>
 					<a href="book_details?bookId=${book.id}">Megtekintés</a><br> 

@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td>Leírás</td>
-			<td><jsp:getProperty property="desc" name="book" /></td>
+			<td><jsp:getProperty property="description" name="book" /></td>
 		</tr>
 		<tr>
 			<td>Szerző</td>

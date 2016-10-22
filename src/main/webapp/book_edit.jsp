@@ -17,7 +17,7 @@
 			</tr>
 			<tr>
 				<td>Leírás</td>
-				<td><input type="text" name="desc" value="${book.desc}" /></td>
+				<td><input type="text" name="description" value="${book.description}" /></td>
 			</tr>
 			<tr>
 				<td>Szerző</td>
