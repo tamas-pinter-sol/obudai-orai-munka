@@ -6,23 +6,46 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
+	<properties>
+		<javax.servlet-api.version>3.0.1</javax.servlet-api.version>
+		<jdk.version>1.7</jdk.version>
+		<source.encoding>UTF-8</source.encoding>
+		<hibernate.version>5.1.0.Final</hibernate.version>
+		<log4j.version>2.5</log4j.version>
+		<juplo.version>1.1.0</juplo.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>${javax.servlet-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.3</version>
 		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -34,12 +57,42 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<outputEncoding>UTF-8</outputEncoding>
-					<source>1.7</source>
-					<target>1.7</target>
+					<outputEncoding>${source.encoding}</outputEncoding>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>generate</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>de.juplo</groupId>
+						<artifactId>hibernate4-maven-plugin</artifactId>
+						<version>${juplo.version}</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>export</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<hibernateConfig>NONE</hibernateConfig>
+							<hibernateDialect>org.hibernate.dialect.Oracle10gDialect</hibernateDialect>
+							<target>SCRIPT</target>
+							<type>BOTH</type>
+							<lineLength>120</lineLength>
+							<outputFile>${basedir}/sql/drop_and_create_db_script.sql</outputFile>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
