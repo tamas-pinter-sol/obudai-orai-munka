@@ -6,6 +6,9 @@ import hu.sol.kvki.book.dao.BookDaoImpl;
 
 import java.util.List;
 
+import javax.jws.WebService;
+
+@WebService
 public class BookServiceHibernateImpl implements BookService {
 
 	private static BookDao bookDao;
