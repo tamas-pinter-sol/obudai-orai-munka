@@ -17,6 +17,7 @@ public class HelloNames extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
 		List<String> names = new ArrayList<String>();
 		names.add("József");
 		names.add("Sándor");

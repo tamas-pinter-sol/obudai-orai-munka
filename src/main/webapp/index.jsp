@@ -18,8 +18,12 @@
 		}
 	</script>
 	<br/>
-	<a href="helloNames">Nevek Listázása</a>
-	<br/>
+	<%if(request.isUserInRole("Administrator") || request.isUserInRole("Manager")){ %>
+		<a href="helloNames">Nevek Listázása</a>
+		<br/>
+	<%} %>
 	<a href="book_list">Könyv alkalmazás</a>
+	<br/>
+	<a href="logout">Kijelentkezés</a>
 </body>
 </html>
