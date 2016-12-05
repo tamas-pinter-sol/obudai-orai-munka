@@ -8,14 +8,17 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 @WebService
+@Component
 public class BookServiceHibernateImpl implements BookService {
 
-	private static BookDao bookDao;
+	@Autowired
+	private BookDao bookDao;
 
-	static {
-		bookDao = new BookDaoImpl();
-	}
+	
 
 	@Override
 	public List<Book> listBooks() {

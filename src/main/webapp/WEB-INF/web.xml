@@ -20,6 +20,20 @@
 		<filter-name>RedirectFilter</filter-name>
 		<filter-class>hu.sol.kvki.book.filter.RedirectFilter</filter-class>
 	</filter>
+	
+	<servlet>
+		<servlet-name>spring-web</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/mvc-config.xml</param-value>
+		</init-param>	
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>spring-web</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
 
 	<listener>
 		<listener-class>hu.sol.kvki.book.filter.ReqEncodingListener</listener-class>
