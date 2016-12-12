@@ -2,7 +2,6 @@ package hu.sol.kvki.book.service;
 
 import hu.sol.kvki.book.bean.Book;
 import hu.sol.kvki.book.dao.BookDao;
-import hu.sol.kvki.book.dao.BookDaoImpl;
 
 import java.util.List;
 
@@ -19,6 +18,13 @@ public class BookServiceHibernateImpl implements BookService {
 	private BookDao bookDao;
 
 	
+	public BookServiceHibernateImpl() {
+	}
+	
+	@Autowired
+	public BookServiceHibernateImpl(BookDao bookDao) {
+		this.bookDao = bookDao;
+	}
 
 	@Override
 	public List<Book> listBooks() {

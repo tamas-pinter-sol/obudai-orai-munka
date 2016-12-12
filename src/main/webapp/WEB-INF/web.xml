@@ -46,7 +46,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>Vaadin</servlet-name>
-		<url-pattern>/vaadinBook</url-pattern>
+		<url-pattern>/vaadinBook/*</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
